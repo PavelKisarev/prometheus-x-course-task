@@ -1,6 +1,7 @@
 {
   "name": "prometheus-x-course-task",
   "homepage": "https://pavelkisarev.github.io/prometheus-x-course-task",
+  "homepage1": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

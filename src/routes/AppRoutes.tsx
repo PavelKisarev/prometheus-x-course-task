@@ -9,6 +9,7 @@ import App from "../App"
 const AppRoutes = () => {
     return (
     <BrowserRouter basename="/prometheus-x-course-task">
+    {/* // <BrowserRouter> */}
         <Routes>
             <Route path="/" element={<App />} >
                 <Route path='*' element={ <NotFoundPage />} />
