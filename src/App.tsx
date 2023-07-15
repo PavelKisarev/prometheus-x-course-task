@@ -1,32 +1,49 @@
+import { useNavigate, useLocation, Outlet} from "react-router-dom"
+import { useEffect, useState } from 'react';
+import Header from './components/header/Header';
 import './App.css';
-import {Routes, Route, useNavigate, useLocation} from "react-router-dom"
-import SignInPage from './pages/SignInPage';
-import BooksListPage from './pages/BooksListPage';
-import BooksSinglePage from './pages/BooksSinglePage';
-import CartPage from './pages/CartPage';
-import NotFoundPage from './pages/NotFoundPage';
-import { useEffect } from 'react';
+import Footer from "./components/footer/Footer";
+import { UserProvider } from './context/UserContext';
+import { BooksProvider } from "./context/BookContext";
 
 function App() {
   let navigate = useNavigate();
   let location = useLocation();
 
+  let [isOnSignInPage, setIsOnSignInPage] = useState(true);
+
   useEffect(()=>{
-    if(location.pathname === "/"){
-      navigate("signin")
+    let isAuth = localStorage.getItem("isLoggedIn")
+
+    if(!isAuth) {
+      navigate('/signin')
+    } else {
+      if(location.pathname === "/" || location.pathname === '/signin'){
+        navigate('/books')
+      }
     }
+    location.pathname === "/signin" ? setIsOnSignInPage(true) : setIsOnSignInPage(false)
   }, [])
 
+  useEffect(()=>{
+    location.pathname === "/signin" ? setIsOnSignInPage(true) : setIsOnSignInPage(false)
+  },[location.pathname])
+
   return (
-    <div>
-      <Routes>
-        <Route path='*' element={ <NotFoundPage />} />
-        <Route path='/signin' element={ <SignInPage />} />
-        <Route path='/books' element={ <BooksListPage />} />
-        <Route path='/books/:id' element={ <BooksSinglePage />} />
-        <Route path='/cart' element={ <CartPage />} />
-      </Routes>
-    </div>
+    <>
+      <UserProvider>
+        <BooksProvider>
+          <Header />
+          <main>
+            <div className="container pt-8x">
+              <Outlet />
+            </div>
+          </main>
+          <div className="pY-8x"></div>
+          {!isOnSignInPage && <Footer />}
+        </BooksProvider>
+      </UserProvider>
+    </>
   );
 }
 

@@ -1,0 +1,31 @@
+.login-section{
+    display: flex;
+    flex: 1 1 100%;
+    margin: auto;
+}
+
+.login-section .login-block{
+    padding: var(--size5x);
+    border-radius: var(--size6x);
+    margin: auto;
+    max-width: 240px;
+    min-height: 100%;
+}
+
+.login-form-icon {
+    width: 160px;
+    height: 160px;
+    color: #ccc;
+}
+
+@media (max-width: 320px) {
+    .login-form-icon {
+        width: 200px;
+        height: 200px;
+    }
+
+    .login-section .login-block {
+        padding: var(--size4x) var(--size2x);
+        border-radius: var(--size2x);
+    }
+}

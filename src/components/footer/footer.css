@@ -1,0 +1,5 @@
+.footer {
+    padding: calc(var(--base-step) * 15) 0;
+    background-color: var(--primary-btn-color);
+    color: var(--white-text);
+}
