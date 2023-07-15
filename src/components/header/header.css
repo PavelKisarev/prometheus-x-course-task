@@ -1,0 +1,14 @@
+.header{
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--size2x) 0;
+    background-color: var(--base-bg-color);
+    z-index: 5;
+}
+
+@media (max-width: 320px) {
+    .user-name {
+        display: none;
+    }
+}

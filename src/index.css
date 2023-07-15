@@ -1,3 +1,38 @@
+:root{
+  --primary-btn-color:#1dccc9;
+  --secondary-btn-color:#845EC2;
+
+  --base-bg-color:#fff;
+
+  --base-text-color: #212121;
+
+  --border-color:#ccc;
+
+  --white-text:#fff;
+
+  --base-step: 4px;
+  --size2x: calc(var(--base-step) * 2);
+  --size3x: calc(var(--base-step) * 3);
+  --size4x: calc(var(--base-step) * 4);
+  --size5x: calc(var(--base-step) * 5);
+  --size6x: calc(var(--base-step) * 6);
+  --size7x: calc(var(--base-step) * 7);
+  --size8x: calc(var(--base-step) * 8);
+  --size9x: calc(var(--base-step) * 9);
+  --size10x: calc(var(--base-step) * 10);
+
+  --container-width: 1170px;
+
+  --neumorph-block-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+  --neumorph-input-shadow: inset 4px 4px 16px #d9d9d9, inset -4px -4px 8px #ffffff; 
+}
+
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +40,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--base-text-color);
+  background-color: var(--base-bg-color);
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
