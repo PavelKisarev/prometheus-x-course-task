@@ -5,12 +5,11 @@ import BooksListPage from "../pages/BooksListPage"
 import BooksSinglePage from "../pages/BooksSinglePage"
 import CartPage from "../pages/CartPage"
 import App from "../App"
-import { useContext, useEffect } from "react"
-import { UserContext } from "../context/UserContext"
 
 const AppRoutes = () => {
     return (
-    <BrowserRouter>
+    <BrowserRouter basename="/prometheus-x-course-task">
+    {/* // <BrowserRouter> */}
         <Routes>
             <Route path="/" element={<App />} >
                 <Route path='*' element={ <NotFoundPage />} />

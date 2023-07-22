@@ -31,7 +31,7 @@ const BooksListPage = () => {
     }
 
     const filterBySearch = (books: IBook[],searchString: string) => {
-        return books.filter( it => it.title.toLowerCase().trim().includes(searchString))
+        return books.filter( it => it.title.toLowerCase().trim().includes(searchString.toLowerCase()))
     }
 
     const getBooksForDisplay = (searchString: string, selectedValuePrice: string) => {
@@ -44,7 +44,7 @@ const BooksListPage = () => {
         <h1>Books</h1>
         <div className="d-flex flex-wrap col-3 pt-8x">
             <div className="col">
-                <FormInput type="search" id="book-search" placeholder="Search by book name" value={searchString} onChange={searchStringHandler} />
+                <FormInput type="search" id="book-search" placeholder="Search by book name" autoComplete="false" value={searchString} onChange={searchStringHandler} />
             </div>
             <div className="col">
                 <select name="" id="" className="form-input-base" onChange={onPriceFilterChangeHandler}>

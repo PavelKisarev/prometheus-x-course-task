@@ -24,7 +24,7 @@
   --container-width: 1170px;
 
   --neumorph-block-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-  --neumorph-input-shadow: inset 4px 4px 16px #d9d9d9, inset -4px -4px 8px #ffffff; 
+  --neumorph-input-shadow: inset 4px 4px 16px 1px #d9d9d9, inset -4px -4px 8px 1px #ffffff; 
 }
 
 * {
@@ -60,4 +60,8 @@ code {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+}
+
+p {
+  line-height: 1.6;
 }

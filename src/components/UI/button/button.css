@@ -78,9 +78,6 @@
 
 @media (max-width: 768px) {
     .btn{
-        padding: var(--base-step) var(--size4x);
-        font-size: 1rem;
-        border-radius: var(--base-step);
         white-space: nowrap;
     }
     
@@ -90,6 +87,7 @@
     
     .btn-sm {
         padding: var(--base-step) var(--size3x);
+        border-radius: var(--base-step);
         font-size: 0.8rem;
     }
 }
