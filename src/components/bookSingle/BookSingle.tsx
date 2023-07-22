@@ -30,10 +30,22 @@ const BookSingle:FC<{book:IBook}> = (props) => {
     },[])
 
     const onBookAmountChangeHandler = (e: any) => {
-        let value = +e.target.value
-        if(value <= 42 && value >= 1) {
-            setBooksAmount(value)
+        // let value = +e.target.value
+        const value = parseInt(e.target.value) || 0;
+        if(value === 0) {
+            setBooksAmount(0)
         } else {
+            if(value <= 42 && value >= 1) {
+                setBooksAmount(value)
+            } else {
+                setBooksAmount(1)
+            }
+        }
+    }
+
+    const onBookAmountBlurHandler = (e: any) => {
+        const value = parseInt(e.target.value) || 0;
+        if(value === 0) {
             setBooksAmount(1)
         }
     }
@@ -89,8 +101,9 @@ const BookSingle:FC<{book:IBook}> = (props) => {
                         label="Amount" 
                         type="number" 
                         id="book-amount" 
-                        value={booksAmount} 
+                        value={booksAmount || ""} 
                         onChange={onBookAmountChangeHandler} 
+                        onBlur={onBookAmountBlurHandler}
                         data-testid="amount-test-input"
                     />
                 </div>

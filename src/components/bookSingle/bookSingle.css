@@ -32,6 +32,7 @@
 @media (max-width: 768px) {
     .book-single{
         flex-direction: column;
+        gap: var(--size4x);
     }
 
     .book-single__right-block .d-flex .form-input-base  {
