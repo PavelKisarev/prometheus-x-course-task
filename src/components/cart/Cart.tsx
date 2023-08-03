@@ -1,10 +1,13 @@
 import { FaShoppingCart } from "react-icons/fa"
 import { Link } from "react-router-dom"
 import { IBookInCart } from "../../api/booksApi"
-import { FC } from "react"
+import { FC, useContext } from "react"
 import "./cart.css"
+import { BooksContext } from "../../context/BookContext"
 
 const Cart:FC<{booksInCart: IBookInCart[]}> = ({booksInCart}) => {
+
+    const {removeBookFromCart} = useContext(BooksContext)
 
     const countTotalPriceOfCart = (booksInCart: IBookInCart[]) => {
         return booksInCart.reduce((accumulator, currentValue) => accumulator + currentValue.totalPrice, 0).toFixed(2)
@@ -17,6 +20,9 @@ const Cart:FC<{booksInCart: IBookInCart[]}> = ({booksInCart}) => {
                 <div className="table__data">{it.amount}</div>
                 <div className="table__data">${it.pricePerBook}</div>
                 <div className="table__data text-right">${it.totalPrice}</div>
+                <div className="table__data text-right">
+                    <span className="cross-span" onClick={()=>{removeBookFromCart(it.id)}}>+</span>
+                </div>
             </div>
         })
     }
@@ -30,6 +36,7 @@ const Cart:FC<{booksInCart: IBookInCart[]}> = ({booksInCart}) => {
                     <div className="table__data">Count</div>
                     <div className="table__data">Price per Book</div>
                     <div className="table__data text-right">Total price $</div>
+                    <div className="table__data text-right"></div>
                 </div>
                 {renderCartItems(booksInCart)}
             </div>

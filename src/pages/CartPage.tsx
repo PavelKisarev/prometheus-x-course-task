@@ -9,7 +9,7 @@ import { BooksContext } from "../context/BookContext"
 const CartPage = () => {
     const navigate = useNavigate()
     const goBack = () => navigate(-1)
-    const goBookCatalogue = () => navigate("/books");
+    const goBookCatalogue = () => navigate("/books")
     const {booksInCart, updateBooksInCart} = useContext(BooksContext)
 
     let [isLoading, setIsLoading] = useState(false)

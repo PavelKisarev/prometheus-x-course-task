@@ -4,13 +4,15 @@ import { IBook, IBookInCart, getBooks } from "../api/booksApi";
 interface IBookContext {
     books: IBook[],
     booksInCart: IBookInCart[],
-    updateBooksInCart : (book: IBookInCart | null) => void
+    updateBooksInCart : (book: IBookInCart | null) => void,
+    removeBookFromCart : (id: number) => void,
 }
 
 const defaultValue: IBookContext = {
     books: [],
     booksInCart: [],
-    updateBooksInCart: (book: IBookInCart | null) => {}
+    updateBooksInCart: (book: IBookInCart | null) => {},
+    removeBookFromCart : () => {},
 }
 
 export const BooksContext = createContext<IBookContext>(defaultValue);
@@ -56,11 +58,16 @@ export const BooksProvider = ({children} : any) => {
         }
     }
 
+    const removeBookFromCart = (id: number) => {
+        setBooksInCart(booksInCart.filter(it => it.id !== id))
+    }
+
     return <BooksContext.Provider value={
             {
                 books: books,
                 booksInCart: booksInCart,
-                updateBooksInCart: updateBooksInCart
+                updateBooksInCart: updateBooksInCart,
+                removeBookFromCart: removeBookFromCart,
             }
         }>
         {children}
