@@ -21,7 +21,7 @@
 }
 
 .table-cart .table__row{
-    grid-template-columns: 300px 1fr 1fr 200px;
+    grid-template-columns: 300px 1fr 1fr 200px 150px;
 }
 
 @media (max-width:768px) {
@@ -30,6 +30,6 @@
     }
     .table-cart .table__row{
         min-width: 400px;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
+        grid-template-columns: 2fr 1fr 1fr 1fr 100px;
     }
 }
